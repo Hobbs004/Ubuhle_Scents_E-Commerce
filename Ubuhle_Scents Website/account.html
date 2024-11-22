@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Account - Login & Registration</title>
+  <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 500px;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .form-group {
+      margin: 15px 0;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #ff4081;
+    }
+
+    .button-group {
+      text-align: center;
+    }
+
+    .button {
+      background-color: #ff4081;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #e6005c;
+    }
+
+    .toggle-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #ff4081;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .toggle-link:hover {
+      text-decoration: underline;
+    }
+
+    .homepage-link {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .homepage-link a {
+      color: #ff4081;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .homepage-link a:hover {
+      text-decoration: underline;
+    }
+
+    .forgot-password-link {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      color: #ff4081;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .forgot-password-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Form -->
+  <div class="container" id="login-form">
+    <div class="homepage-link">
+      <a href="index.php">Go to Homepage</a>
+    </div>
+    <h2>Login</h2>
+    <form action="login.php" method="POST">
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" required>
+      </div>
+      <div class="button-group">
+        <button type="submit" class="button">Login</button>
+      </div>
+      <a href="#" class="toggle-link" onclick="toggleForm()">Don't have an account? Register here</a>
+      <!-- Forgot Password Link -->
+      <a href="forgot_password.php" class="forgot-password-link">Forgot Password?</a>
+    </form>
+  </div>
+
+  <!-- Registration Form -->
+  <div class="container" id="registration-form" style="display: none;">
+    <div class="homepage-link">
+      <a href="index.php">Go to Homepage</a>
+    </div>
+    <h2>Register</h2>
+    <form action="register.php" method="POST">
+      <div class="form-group">
+        <label for="register-name">Full Name</label>
+        <input type="text" id="register-name" name="fullname" required>
+      </div>
+      <div class="form-group">
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="register-confirm-password">Confirm Password</label>
+        <input type="password" id="register-confirm-password" name="confirm_password" required>
+      </div>
+      <div class="button-group">
+        <button type="submit" class="button">Register</button>
+      </div>
+      <a href="#" class="toggle-link" onclick="toggleForm()">Already have an account? Login here</a>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript to toggle between Login and Registration form
+    function toggleForm() {
+      const loginForm = document.getElementById('login-form');
+      const registrationForm = document.getElementById('registration-form');
+      if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        registrationForm.style.display = 'none';
+      } else {
+        loginForm.style.display = 'none';
+        registrationForm.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
